@@ -4,16 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
-
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from './context/cartContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <CartProvider>
+    <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </CartProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
